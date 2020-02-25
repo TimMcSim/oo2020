@@ -19,13 +19,15 @@ public class World {
     }
 
     void render(){
+        restrict();
+
         String symbol = "";
 
-        for(int y = 0; y < height; y++){
-            for(int x = 0; x < width; x++){
-                if (y == 0 || y == height-1){
+        for(int y = 0; y <= height; y++){
+            for(int x = 0; x <= width; x++){
+                if (y == 0 || y == height){
                     symbol = "-";
-                } else if (x == 0 || x == width-1){
+                } else if (x == 0 || x == width){
                     symbol = "|";
                 } else {
                     symbol = " ";
@@ -42,6 +44,20 @@ public class World {
 
             System.out.println("");
             symbol = "";
+        }
+    }
+
+    void restrict(){
+        Character c = characters.get(characters.size()-1);
+
+        if (c.x == 0){
+            c.x++;
+        } else if (c.y == 0){
+            c.y++;
+        } else if (c.x == width){
+            c.x--;
+        } else if (c.y == height){
+            c.y--;
         }
     }
 }

@@ -38,8 +38,8 @@ public class Game {
                 player.changeDirection(Direction.RIGHT);
             }
 
-            if(player.x == enemy.x && player.y == enemy.y){
-                System.out.println("Yay!");
+            if(player.x == npc.x && player.y == npc.y){
+                enemy.isVisible = enemy.isVisible == true ? false : true;
             }
 
             world.render();
