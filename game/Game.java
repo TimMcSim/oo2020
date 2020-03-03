@@ -11,6 +11,9 @@ public class Game {
         Character player = new Character("Raimo", CharacterType.PLAYER, "X");
         Character enemy = new Character(5, 5, "Sipsik", CharacterType.MONSTER, "o");
         Character npc = new Character(3, 3, "Helper", CharacterType.NPC, "N");
+        Item[] itemList = new Item[5];
+        itemList[0] = new Item("Saabas", ItemType.WEAPON, 1.5);
+        System.out.println(itemList[0]);
 
         world.addCharacters(Arrays.asList(
             enemy, 
