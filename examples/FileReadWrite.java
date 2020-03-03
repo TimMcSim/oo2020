@@ -11,8 +11,8 @@ import java.util.Scanner;
  */
 public class FileReadWrite {
     public static void main(String[] args) throws IOException {
-        File file = new File("test.txt");
-        File fileW = new File("test2.txt");
+        File file = new File("datainput.txt"); // oli test.txt
+        File fileW = new File("dataoutput.txt"); // oli test2.txt
         /* System.out.println(
             file.getName() + "\n" +
             file.isFile() + "\n" +
@@ -42,7 +42,15 @@ public class FileReadWrite {
         Scanner scanner = new Scanner(file);
 
         while (scanner.hasNextLine()){
-            pw.println(scanner.nextLine());
+            String line2 = scanner.nextLine();
+            String[] lineData = line2.split(",");
+            pw.println(
+                "Number is " + Integer.parseInt(lineData[0]) + 
+                " and name is " + lineData[1] + 
+                " and favourite animal is " + lineData[2] + 
+                " and graduation year is " + Integer.valueOf(lineData[3])
+            );
+            //pw.println(scanner.nextLine().length());
         }
 
         scanner.close();
